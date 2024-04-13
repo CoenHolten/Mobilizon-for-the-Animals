@@ -6,19 +6,19 @@
       <img
         alt=""
         src="/img/shape-1.svg"
-        class="-z-10 absolute left-[2%] top-36"
+        class="-z-10 absolute left-[10%] top-[30%] opacity-20"
         width="300"
       />
       <img
         alt=""
         src="/img/shape-2.svg"
-        class="-z-10 absolute left-[50%] top-[5%] -translate-x-2/4 opacity-60"
+        class="-z-10 absolute left-[50%] top-[5%] -translate-x-2/4 opacity-30"
         width="800"
       />
       <img
         alt=""
         src="/img/shape-3.svg"
-        class="-z-10 absolute top-0 right-36"
+        class="-z-10 absolute top-20 right-36 opacity-20"
         width="200"
       />
     </div>
