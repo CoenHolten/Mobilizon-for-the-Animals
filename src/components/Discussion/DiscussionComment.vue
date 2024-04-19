@@ -26,6 +26,18 @@
         <span v-else class="name comment-link has-text-grey">
           {{ t("[deleted]") }}
         </span>
+        <div class="self-center">
+          <span
+            :title="formatDateTimeString(comment.updatedAt?.toString())"
+            v-if="comment.updatedAt"
+          >
+            {{
+              formatDistanceToNow(new Date(comment.updatedAt?.toString()), {
+                locale: dateFnsLocale,
+              }) || t("Right now")
+            }}</span
+          >
+        </div>
         <span
           class="icons"
           v-if="
@@ -34,7 +46,7 @@
             (comment.actor.id === currentActor.id || canReport)
           "
         >
-          <o-dropdown aria-role="list" position="bottom-left">
+          <o-dropdown aria-role="list" position="bottom-right">
             <template #trigger>
               <DotsHorizontal class="cursor-pointer" />
             </template>
@@ -65,18 +77,6 @@
             </o-dropdown-item>
           </o-dropdown>
         </span>
-        <div class="self-center">
-          <span
-            :title="formatDateTimeString(comment.updatedAt?.toString())"
-            v-if="comment.updatedAt"
-          >
-            {{
-              formatDistanceToNow(new Date(comment.updatedAt?.toString()), {
-                locale: dateFnsLocale,
-              }) || t("Right now")
-            }}</span
-          >
-        </div>
       </div>
       <div
         v-if="!editMode && !comment.deletedAt"

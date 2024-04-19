@@ -98,7 +98,7 @@
               </span>
             </p>
           </div>
-          <o-dropdown position="bottom-left" aria-role="list">
+          <o-dropdown position="bottom-right" aria-role="list">
             <template #trigger>
               <o-button icon-right="dots-horizontal">
                 {{ t("Actions") }}

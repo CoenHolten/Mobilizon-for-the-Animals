@@ -104,7 +104,7 @@
           </template>
         </VTooltip>
       </p>
-      <o-dropdown class="ml-auto">
+      <o-dropdown class="ml-auto" position="bottom-right">
         <template #trigger>
           <o-button icon-right="dots-horizontal">
             {{ t("Actions") }}

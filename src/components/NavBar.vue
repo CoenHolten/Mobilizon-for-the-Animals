@@ -55,7 +55,6 @@
           <!-- Dropdown menu -->
           <div
             class="z-50 text-base list-none bg-white rounded divide-y divide-gray-100 dark:bg-zinc-700 dark:divide-gray-600 max-w-xs"
-            position="bottom-left"
           >
             <o-dropdown-item aria-role="listitem">
               <div class="px-4">

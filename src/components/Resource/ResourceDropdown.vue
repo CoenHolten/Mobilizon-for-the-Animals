@@ -1,5 +1,5 @@
 <template>
-  <o-dropdown aria-role="list" position="bottom-left">
+  <o-dropdown aria-role="list" position="bottom-right">
     <template #trigger>
       <DotsHorizontal />
     </template>
