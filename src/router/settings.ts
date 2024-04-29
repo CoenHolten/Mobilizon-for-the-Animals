@@ -266,7 +266,7 @@ export const settingsRoutes: RouteRecordRaw[] = [
         component: (): Promise<any> =>
           import("@/views/Account/children/EditIdentity.vue"),
         props: (route: RouteLocationNormalized): Record<string, unknown> => ({
-          identityName: route.params.identityName,
+          identityName: null,
           isUpdate: false,
         }),
         meta: {
