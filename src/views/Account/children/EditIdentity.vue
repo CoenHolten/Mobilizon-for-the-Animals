@@ -255,8 +255,6 @@ onPersonResult(async ({ data }) => {
 
 onPersonError((err) => handleErrors(err as unknown as AbsintheGraphQLErrors));
 
-const person = computed(() => personResult.value?.fetchPerson);
-
 const baseIdentity: IPerson = {
   id: undefined,
   avatar: null,
@@ -270,13 +268,17 @@ const baseIdentity: IPerson = {
   suspended: false,
 };
 
-const identity = ref<IPerson>(baseIdentity);
+// this is the template used for the current page
+const person = computed(() => personResult.value?.fetchPerson ?? baseIdentity);
 
+// loading the page makes a copy of the template
+const identity = ref<IPerson>({ ...person.value });
+
+// when the details are loaded from the database they are also copied
+// this function is *not* triggered when revisiting a page with cached person
 watch(person, () => {
   console.debug("person changed", person.value);
-  if (person.value) {
-    identity.value = { ...person.value };
-  }
+  identity.value = { ...person.value };
 });
 
 const avatarMaxSize = useAvatarMaxSize();
@@ -644,11 +646,7 @@ const handleError = (err: any) => {
   }
 
   if (err.graphQLErrors !== undefined) {
-    err.graphQLErrors.forEach(
-      ({ message: errorMessage }: { message: string }) => {
-        notifier?.error(errorMessage);
-      }
-    );
+    notifier?.error(err.message);
   }
 };
 
