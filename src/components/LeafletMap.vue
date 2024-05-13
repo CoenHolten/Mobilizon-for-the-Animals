@@ -40,7 +40,6 @@
         </l-popup>
       </l-marker>
     </l-map>
-    <CrosshairsGps ref="locationIcon" class="hidden" />
   </div>
 </template>
 
@@ -67,7 +66,6 @@ import { computed, nextTick, ref } from "vue";
 import { useMapTiles } from "@/composition/apollo/config";
 import { useI18n } from "vue-i18n";
 import Locatecontrol from "leaflet.locatecontrol";
-import CrosshairsGps from "vue-material-design-icons/CrosshairsGps.vue";
 import MapMarker from "vue-material-design-icons/MapMarker.vue";
 import { useDebounceFn } from "@vueuse/core";
 
@@ -99,9 +97,6 @@ const zoom = ref(defaultOptions.zoom);
 const mapComponent = ref();
 const mapObject = ref<Map>();
 const locateControl = ref<Control.Locate>();
-const locationIcon = ref();
-
-const locationIconHTML = computed(() => locationIcon.value?.$el.innerHTML);
 
 const onMapReady = async () => {
   mapObject.value = mapComponent.value.leafletObject;
@@ -116,27 +111,7 @@ const mountLocateControl = () => {
       strings: { title: t("Show me where I am") as string },
       position: "topleft",
       drawCircle: false,
-      drawMarker: false,
-      createButtonCallback(container: HTMLElement | undefined, options: any) {
-        const link = DomUtil.create(
-          "a",
-          "leaflet-bar-part leaflet-bar-part-single",
-          container
-        );
-        link.title = options.strings.title;
-        link.href = "#";
-        link.setAttribute("role", "button");
-
-        const icon = DomUtil.create(
-          "span",
-          "material-design-icon rss-icon",
-          link
-        );
-        icon.setAttribute("aria-hidden", "true");
-        icon.setAttribute("role", "img");
-        icon.insertAdjacentHTML("beforeend", locationIconHTML.value);
-        return { link, icon };
-      },
+      drawMarker: true,
       ...props.options,
     }) as Control.Locate;
     locateControl.value?.addTo(mapObject.value);
