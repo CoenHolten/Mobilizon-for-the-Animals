@@ -151,7 +151,7 @@
         v-model:active="isDeleteAccountModalActive"
         has-modal-card
         full-screen
-        :can-cancel="false"
+        :cancelable="false"
       >
         <section class="">
           <div class="">

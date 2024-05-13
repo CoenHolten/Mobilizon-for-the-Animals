@@ -120,7 +120,7 @@
       v-else-if="postLoading"
       :is-full-page="false"
       v-model:active="postLoading"
-      :can-cancel="false"
+      :cancelable="false"
     ></o-loading>
     <div class="container mx-auto" v-else>
       <o-notification variant="danger">

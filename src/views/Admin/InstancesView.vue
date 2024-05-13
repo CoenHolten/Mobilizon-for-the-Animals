@@ -29,7 +29,7 @@
               <o-loading
                 :is-full-page="true"
                 v-model="followInstanceLoading"
-                :can-cancel="false"
+                :cancelable="false"
               />
             </p>
           </o-field>

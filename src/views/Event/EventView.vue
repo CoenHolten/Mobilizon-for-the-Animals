@@ -268,7 +268,7 @@
         v-if="event?.physicalAddress?.geom"
         has-modal-card
         full-screen
-        :can-cancel="['escape', 'outside']"
+        :cancelable="['escape', 'outside']"
       >
         <template #default>
           <event-map
