@@ -1,6 +1,6 @@
 <template>
   <o-taginput
-    :modelValue="modelValueWithDisplayName"
+    :modelValue="modelValue"
     @update:modelValue="updateTags"
     :data="availableActors"
     :allow-autocomplete="true"
@@ -38,13 +38,6 @@ const props = defineProps<{
 }>();
 
 const modelValue = computed(() => props.modelValue);
-
-const modelValueWithDisplayName = computed(() =>
-  modelValue.value.map((actor) => ({
-    ...actor,
-    displayName: displayName(actor),
-  }))
-);
 
 const { t } = useI18n({ useScope: "global" });
 
