@@ -16,7 +16,7 @@
         "
       >
         <img
-          class="rounded-full"
+          class="rounded-full w-full h-full object-cover"
           :src="conversation.lastComment.actor.avatar.url"
           alt=""
           width="48"
@@ -32,7 +32,7 @@
           <figure class="w-6 h-6 -mr-3">
             <img
               v-if="extraParticipant && extraParticipant.avatar"
-              class="rounded-full h-6"
+              class="rounded-full w-6 h-6 object-cover"
               :src="extraParticipant.avatar.url"
               alt=""
               width="24"
