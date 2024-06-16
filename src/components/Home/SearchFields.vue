@@ -1,13 +1,17 @@
 <template>
   <form
-    id="search-anchor"
-    class="container mx-auto my-3 px-2 flex flex-wrap flex-col sm:flex-row items-stretch gap-2 text-center justify-center dark:text-slate-100"
+    id="search-anchor"    
     role="search"
     @submit.prevent="submit"
   >
     <label class="sr-only" for="search_field_input">{{
       t("Keyword, event title, group name, etc.")
-    }}</label>
+    }}</label>    
+    <section class="container mx-auto px-2 my-3">
+      <b>
+      {{t("Search for events or groups")}}
+      </b>
+    <div  class= "flex flex-wrap flex-col sm:flex-row items-stretch gap-2 text-center items-center justify-center dark:text-slate-100">
     <o-input
       v-if="search != null"
       v-model="search"
@@ -19,7 +23,7 @@
       autocorrect="off"
       maxlength="1024"
       expanded
-    />
+    />    
     <full-address-auto-complete
       :resultType="AddressSearchType.ADMINISTRATIVE"
       v-model="address"
@@ -27,7 +31,7 @@
       :hide-selected="true"
       :default-text="addressDefaultText"
       labelClass="sr-only"
-      :placeholder="t('e.g. Nantes, Berlin, Cork, …')"
+      :placeholder="t('City, address, location, etc...')"
       v-on:update:modelValue="modelValueUpdate"
     >
       <o-dropdown v-model="distance" position="bottom-right" v-if="distance">
@@ -69,6 +73,8 @@
     >
       {{ t("Groups") }}
     </o-button>
+  </div>
+  </section>
   </form>
 </template>
 

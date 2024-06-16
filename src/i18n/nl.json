@@ -1543,5 +1543,7 @@
   "{username} was invited to {group}": "{username} is uitgenodigd voor {group}",
   "{user}'s follow request was accepted": "{user}'s volgverzoek is geaccepteerd",
   "{user}'s follow request was rejected": "{user}'s volgverzoek is afgewezen",
-  "© The OpenStreetMap Contributors": "© De OpenStreetMap-bijdragers"
+  "© The OpenStreetMap Contributors": "© De OpenStreetMap-bijdragers",
+  "Search for events or groups": "Zoek naar evenementen of groepen",
+  "City, address, location, etc...": "Stad, adres, locatie, enz..."
 }
