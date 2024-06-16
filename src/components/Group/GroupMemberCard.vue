@@ -6,7 +6,7 @@
     >
       <figure class="" v-if="member.actor.avatar">
         <img
-          class="rounded-xl"
+          class="rounded-full w-6 h-6 object-cover"
           :src="member.actor.avatar.url"
           alt=""
           width="24"
