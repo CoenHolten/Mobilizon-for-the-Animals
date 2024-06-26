@@ -6,7 +6,7 @@ in
 buildNpmPackage {
   inherit (common) pname version src;
 
-  npmDepsHash = "sha256-pF07ul71zg9iLM/ja4Fz/6IXpqdMKb7KwOH02Q9lyCg=";
+  npmDepsHash = "sha256-fAsHZus8fJMUtl3qYmSjaJM1Rp3tBlzQKGF3qxYYtio";
 
   nativeBuildInputs = [ imagemagick ];
 
