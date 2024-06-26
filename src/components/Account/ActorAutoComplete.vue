@@ -1,7 +1,6 @@
 <template>
   <o-taginput
-    :modelValue="modelValue"
-    @update:modelValue="updateTags"
+    v-model="modelValue"
     :data="availableActors"
     :allow-autocomplete="true"
     :allow-new="false"
@@ -21,23 +20,21 @@ import { SEARCH_PERSON_AND_GROUPS } from "@/graphql/search";
 import { IActor, IGroup, IPerson, displayName } from "@/types/actor";
 import { Paginate } from "@/types/paginate";
 import { useLazyQuery } from "@vue/apollo-composable";
-import { computed, ref } from "vue";
+import { ref } from "vue";
 import ActorInline from "./ActorInline.vue";
 import { useI18n } from "vue-i18n";
 
-const emit = defineEmits<{
-  "update:modelValue": [value: IActor[]];
-}>();
 
-const updateTags = (val: IActor[]) => {
-  emit("update:modelValue", val);
-};
-
-const props = defineProps<{
-  modelValue: IActor[];
-}>();
-
-const modelValue = computed(() => props.modelValue);
+type ActorWithName = IActor & { displayName?: String }
+const modelValue = defineModel<ActorWithName[]>({
+  default: [],
+  get(value) {
+    return value.map((actor) => ({
+      ...actor,
+      displayName: displayName(actor),
+    }))
+  }
+})
 
 const { t } = useI18n({ useScope: "global" });
 
