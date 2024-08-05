@@ -1600,6 +1600,7 @@ let
         src = builtins.fetchGit {
           url = "https://github.com/tcitworld/rajska.git";
           rev = "0c036448e261e8be6a512581c592fadf48982d84";
+          ref = "mobilizon";
         };
 
         beamDeps = [ absinthe hammer ];
