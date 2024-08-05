@@ -58,8 +58,9 @@ mixRelease rec {
     chmod 770 -R ./priv
   '';
 
+  # https://discourse.nixos.org/t/building-mix-project-fails-after-updating-dependencies/47830
   postBuild = ''
-    mix phx.digest --no-deps-check
+    mix do deps.loadpaths --no-deps-check, phx.digest
   '';
 
   passthru = {
