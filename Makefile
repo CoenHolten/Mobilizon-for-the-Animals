@@ -4,7 +4,8 @@ init:
 
 setup: stop
 	@bash docker/message.sh "Compiling everything"
-	docker compose run --rm api bash -c 'mix deps.get; npm ci; npm run build:pictures; mix ecto.create; mix ecto.migrate'
+	docker compose build
+	docker compose run --rm api bash -c 'mix deps.get; npm ci; mix ecto.create; mix ecto.migrate; npm run build:pictures'
 migrate:
 	docker compose run --rm api mix ecto.migrate
 logs:
