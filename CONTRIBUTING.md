@@ -10,5 +10,6 @@ setup guide:
 
 
 updating the dependencies is something like:
-- nix deps.update --all
-- `nix deps.nix` and then move the deps.nix file to nix/deps.nix
+- mix deps.update --all
+- `mix deps.nix` and then move the deps.nix file to nix/deps.nix
+- update `rajska` `ref` to "mobilizon"
