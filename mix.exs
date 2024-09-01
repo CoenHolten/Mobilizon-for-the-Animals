@@ -196,7 +196,7 @@ defmodule Mobilizon.Mixfile do
       {:ueberauth_cas, "~> 2.0"},
       {:ecto_shortuuid, "~> 0.2.0"},
       {:tesla, "~> 1.8"},
-      {:sitemapper, "~> 0.8.0"},
+      {:sitemapper, "== 0.8.0"}, # version 0.8.1 has a dependency cycle or something?
       {:xml_builder, "~> 2.2"},
       {:remote_ip, "~> 1.1"},
       {:ex_cldr_languages, "~> 0.3.0"},
