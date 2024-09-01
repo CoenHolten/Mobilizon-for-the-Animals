@@ -1,6 +1,6 @@
 { }: rec {
   pname = "mobilizon";
-  version = "5.1.1-2024.8.5+for-the-animals";
+  version = "5.1.1-2024.9.1+for-the-animals";
 
   src = ./..;
 }
