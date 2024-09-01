@@ -18,6 +18,7 @@ services:
     user: "1000:1000"
     volumes:
       - ".:/app"
+    working_dir: /app
     ports:
       - 4000:4000
       - 5173:5173
@@ -38,6 +39,7 @@ services:
       MOBILIZON_DATABASE_HOST: postgres
       MOBILIZON_DATABASE_PORT: ${POSTGRES_PORT}
       VITE_HOST: ${VITE_HOST:-localhost}
+      HOME: /tmp-home
     command: sh -c "mix local.hex --force && mix local.rebar --force && mix phx.server"
 volumes:
   pgdata:
