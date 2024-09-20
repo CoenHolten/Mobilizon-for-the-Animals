@@ -27,40 +27,64 @@
         class="lg:block mt-4 px-2"
       >
         <p class="sr-only">{{ t("Type") }}</p>
-        <ul
+        <div
           class="font-medium text-gray-900 dark:text-slate-100 space-y-4 pb-4 border-b border-gray-200 dark:border-gray-500"
         >
-          <li
-            v-for="content in contentTypeMapping"
-            :key="content.contentType"
-            class="flex gap-1"
-          >
-            <Magnify
-              v-if="content.contentType === ContentType.ALL"
-              :size="24"
+          <div class="flex flex-row">
+            <input
+              id="allTarget"
+              v-model="contentType"
+              type="radio"
+              :value="ContentType.ALL"
+              class="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600"
             />
-
-            <Calendar
-              v-if="content.contentType === ContentType.EVENTS"
-              :size="24"
-            />
-
-            <AccountMultiple
-              v-if="content.contentType === ContentType.GROUPS"
-              :size="24"
-            />
-
-            <router-link
-              :to="{
-                ...$route,
-                query: { ...$route.query, contentType: content.contentType },
-              }"
+            <label
+              for="allTarget"
+              class="flex flex-row ml-3 font-medium text-gray-900 dark:text-gray-300"
             >
-              {{ content.label }}
-            </router-link>
-          </li>
-        </ul>
-
+              <FolderSearchOutline
+                :size="24"
+              />
+              {{ t("Everything") }}
+            </label>
+          </div>
+          <div class="flex flex-row">
+            <input
+              id="eventTarget"
+              v-model="contentType"
+              type="radio"
+              :value="ContentType.EVENTS"
+              class="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600"
+            />
+            <label
+              for="eventTarget"
+              class="flex flex-row ml-3 font-medium text-gray-900 dark:text-gray-300"
+            >
+              <Calendar
+                :size="24"
+              />
+              {{ t("Events") }}
+            </label>
+          </div>
+          <div class="flex flex-row">
+            <input
+              id="groupTarget"
+              v-model="contentType"
+              type="radio"
+              :value="ContentType.GROUPS"
+              class="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600"
+            />
+            <label
+              for="groupTarget"
+              class="flex flex-row ml-3 font-medium text-gray-900 dark:text-gray-300"
+            >
+              <AccountMultiple
+                :size="24"
+              />
+              {{ t("Groups") }}
+            </label>
+          </div>
+        </div>
         <div
           class="py-4 border-b border-gray-200 dark:border-gray-500"
           v-show="globalSearchEnabled"
@@ -768,7 +792,7 @@ import {
 } from "vue-use-route-query";
 import Calendar from "vue-material-design-icons/Calendar.vue";
 import AccountMultiple from "vue-material-design-icons/AccountMultiple.vue";
-import Magnify from "vue-material-design-icons/Magnify.vue";
+import FolderSearchOutline from "vue-material-design-icons/FolderSearchOutline.vue";
 
 import { useHead } from "@unhead/vue";
 import type { Locale } from "date-fns";
