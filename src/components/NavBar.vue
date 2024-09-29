@@ -18,6 +18,15 @@
         v-if="currentActor?.id"
       >
         <router-link
+          :to="{ name: RouteName.SEARCH }"
+          class="flex sm:mr-3 text-sm md:mr-0 relative"
+          id="search-menu-button"
+          aria-expanded="false"
+        >
+          <span class="sr-only">{{ t("Search") }}</span>
+          <Magnify :size="32" />
+        </router-link>
+        <router-link
           :to="{ name: RouteName.CONVERSATION_LIST }"
           class="flex sm:mr-3 text-sm md:mr-0 relative"
           id="conversations-menu-button"
@@ -225,6 +234,7 @@ import { useRoute, useRouter } from "vue-router";
 import { useI18n } from "vue-i18n";
 import AccountCircle from "vue-material-design-icons/AccountCircle.vue";
 import Inbox from "vue-material-design-icons/Inbox.vue";
+import Magnify from "vue-material-design-icons/Magnify.vue";
 import { useCurrentUserClient } from "@/composition/apollo/user";
 import {
   useCurrentActorClient,
