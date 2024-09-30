@@ -26,7 +26,11 @@
   <!-- Unlogged introduction -->
   <unlogged-introduction :config="config" v-if="config && !isLoggedIn" />
   <!-- Search fields -->
-  <search-fields v-model:search="search" v-model:location="location" />
+  <search-fields
+    v-model:search="search"
+    v-model:location="location"
+    v-if="!isLoggedIn"
+  />
   <!-- Categories preview -->
   <categories-preview />
   <!-- Welcome back -->
